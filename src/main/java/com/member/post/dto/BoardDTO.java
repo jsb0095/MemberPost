@@ -1,10 +1,9 @@
 package com.member.post.dto;
 
 import lombok.Data;
-import org.springframework.web.multipart.MultipartFile;
 
 @Data
-public class PostDTO {
+public class BoardDTO {
     Long id;
     String boardTitle;
     String boardWriter;

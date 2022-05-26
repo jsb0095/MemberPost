@@ -1,13 +1,13 @@
 package com.member.post.controller;
 
-import com.member.post.dto.MemberPostDTO;
+import com.member.post.dto.MemberDTO;
 import com.member.post.service.MemberPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/member")
@@ -20,8 +20,8 @@ public class MemberPostController {
         return "member/save";
     }
     @PostMapping("/save")
-        public String save(@ModelAttribute MemberPostDTO memberPostDTO){
-        memberPostService.save(memberPostDTO);
+        public String save(@ModelAttribute MemberDTO memberDTO){
+        memberPostService.save(memberDTO);
         return "/member/login";
     }
     @PostMapping("/duplicate-check")
@@ -34,10 +34,19 @@ public class MemberPostController {
         return "/member/login";
     }
     @PostMapping("/login")
-    public String loginForm(@ModelAttribute MemberPostDTO memberPostDTO){
-       List<MemberPostDTO> memberPostDTOList =memberPostService.loginForm(memberPostDTO);
-        if(memberPostDTOList!=null){
-            return "member/findAll";
+    public String loginForm(@ModelAttribute MemberDTO memberPostDTO, HttpSession httpSession, Model model){
+       MemberDTO memberDTO=memberPostService.loginForm(memberPostDTO);
+            if(memberDTO!=null){
+            httpSession.setAttribute("loginMemberId",memberDTO.getId());
+            httpSession.setAttribute("loginName",memberDTO.getMemberName());
+
+            model.addAttribute("memberPostDTO", memberDTO);
+            if(memberDTO.getMemberId().equals("admin")){
+                    httpSession.setAttribute("adminId",memberDTO.getId());
+                    httpSession.setAttribute("adminName",memberDTO.getMemberName());
+                    return "member/admin";
+                }
+            return "member/boardList";
         }else{
             return "member/login";
         }

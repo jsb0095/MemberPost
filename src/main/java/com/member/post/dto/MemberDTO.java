@@ -4,7 +4,7 @@ import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
 @Data
-public class MemberPostDTO {
+public class MemberDTO {
    private Long id;
     private String memberId;
     String memberPassword;
