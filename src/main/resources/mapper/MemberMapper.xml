@@ -14,6 +14,9 @@
     <select id="loginForm" parameterType="MDTO" resultType="MDTO">
         select * from member1_table where memberId=#{memberId} and memberPassword=#{memberPassword}
     </select>
+    <select id="findAll" resultType="MDTO">
+        select * from member1_table;
+    </select>
 </mapper>
 
 

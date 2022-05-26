@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/member")
@@ -52,6 +53,15 @@ public class MemberPostController {
         }
 
     }
+
+
+    @GetMapping("/findAll")
+    public String findAll(Model model){
+        List<MemberDTO> memberDTOList=memberPostService.findAll();
+        model.addAttribute("findUser",memberDTOList);
+        return "member/findAll";
+    }
+
 
 
 }

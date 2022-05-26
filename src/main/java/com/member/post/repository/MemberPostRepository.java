@@ -5,6 +5,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class MemberPostRepository {
     @Autowired private SqlSessionTemplate sql;
@@ -22,5 +24,9 @@ public class MemberPostRepository {
 
 
       return sql.selectOne("member.loginForm", memberDTO);
+    }
+
+    public List<MemberDTO> findALl() {
+       return sql.selectList("member.findAll");
     }
 }

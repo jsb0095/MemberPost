@@ -5,6 +5,8 @@ import com.member.post.repository.MemberPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MemberPostService {
     @Autowired
@@ -25,5 +27,10 @@ public class MemberPostService {
 
     public MemberDTO loginForm(MemberDTO memberDTO) {
        return memberPostRepository.loginForm(memberDTO);
+    }
+
+    public List<MemberDTO> findAll() {
+        List<MemberDTO> memberDTOList=memberPostRepository.findALl();
+        return memberDTOList;
     }
 }
