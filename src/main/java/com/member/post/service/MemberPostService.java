@@ -42,4 +42,10 @@ public class MemberPostService {
            return false;
        }
     }
+
+    public MemberDTO findById(Long id) {
+       MemberDTO memberDTO= memberPostRepository.findById(id);
+        System.out.println(memberDTO);
+       return memberDTO;
+    }
 }

@@ -73,7 +73,13 @@ public class MemberPostController {
         session.invalidate();
         return "index";
     }
-
+    @GetMapping("/detail")
+    public String findById(@RequestParam("id")Long id ,Model model){
+       MemberDTO memberDTO= memberPostService.findById(id);
+       model.addAttribute("findById",memberDTO);
+        System.out.println(memberDTO);
+        return "member/detail";
+    }
 
 
 

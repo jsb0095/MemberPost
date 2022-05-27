@@ -20,6 +20,9 @@
     <delete id="delete" parameterType="Long">
         delete from member1_table where id=#{id}
     </delete>
+    <select id="findById" parameterType="Long" resultType="MDTO">
+        select * from member1_table where id=#{id}
+    </select>
 </mapper>
 
 
