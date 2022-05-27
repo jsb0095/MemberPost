@@ -46,6 +46,7 @@ public class MemberPostController {
         if (memberDTO != null) {
             httpSession.setAttribute("loginMemberId", memberDTO.getId());
             httpSession.setAttribute("loginName", memberDTO.getMemberName());
+            httpSession.setAttribute("loginProfile",memberDTO.getMemberProfileName());
             model.addAttribute("memberPostDTO", memberDTO);
 
             if (memberDTO.getMemberId().equals("admin")) {
@@ -101,13 +102,14 @@ public class MemberPostController {
 
 
     @PostMapping("/update")
-    public String update(@ModelAttribute MemberDTO memberDTO) {
+    public String update(@ModelAttribute MemberDTO memberDTO)throws IOException {
          boolean result= memberPostService.update(memberDTO);
         System.out.println(memberDTO);
+        System.out.println("MemberPostController.update");
          if (result){
              return "redirect:/member/detail?id="+memberDTO.getId();
          }else {
-             return "redirect:/member/update";
+             return "fail";
          }
 
     }

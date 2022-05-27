@@ -19,12 +19,19 @@
 회원전용<br>
 ID:${sessionScope.loginMemberId}<br>
 ${sessionScope.loginName}님 환영합니다<br>
-<button onclick="findById(${sessionScope.loginMemberId})">마이페이지</button>
+   <img src="${pageContext.request.contextPath}/upload/${sessionScope.loginProfile}" alt="" height="100" width="100"><br>
+
+    <button onclick="findById(${sessionScope.loginMemberId})">마이페이지</button>
+    <button onclick="boardSave()">글쓰기</button>
 </div>
 </body>
 <script>
     function findById(id){
         location.href="/member/detail?id="+id;
+    }
+    function boardSave(){
+        location.href="/board/save";
+
     }
 </script>
 </html>

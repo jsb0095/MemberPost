@@ -4,7 +4,9 @@ import lombok.Data;
 
 @Data
 public class ReviewDTO {
-    Long id;
+    Long b_id;
+    String memberId;
+    Long c_id;
     int boardId;
     String commentWriter;
     String commentCratedDate;

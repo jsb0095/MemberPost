@@ -7,18 +7,16 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+
 <head>
-
-
     <title>Document</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
 <body>
-<div class="container">
+<div>
     <button  onclick="save()">회원가입</button><br>
     <button  onclick="login()">로그인</button><br>
     <button  onclick="">글목록</button><br>
-
 </div>
 </body>
 <script>
@@ -31,5 +29,7 @@
     function findAll(){
         location.href="/member/detail.jsp"
     }
+
 </script>
+
 </html>

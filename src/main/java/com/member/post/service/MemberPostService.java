@@ -60,13 +60,25 @@ public class MemberPostService {
        return memberDTO;
     }
 
-    public boolean update(MemberDTO memberDTO) {
-      int result = memberPostRepository.update(memberDTO);
-        System.out.println(memberDTO);
-      if(result>0){
-          return true;
-      }else {
-          return false;
-      }
+    public boolean update(MemberDTO memberDTO)throws IOException {
+
+
+        MultipartFile boardFile = memberDTO.getMemberProfile();
+        String boardFileName = boardFile.getOriginalFilename();
+        boardFileName = System.currentTimeMillis() + "-" + boardFileName;
+        memberDTO.setMemberProfileName(boardFileName);
+        String savePath = "C:\\Spring_img\\" + boardFileName;
+
+        if (!boardFile.isEmpty()) {
+            boardFile.transferTo(new File(savePath));
+        }
+        int result = memberPostRepository.update(memberDTO);
+        if (result > 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+
     }
 }
