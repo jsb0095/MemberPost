@@ -16,7 +16,7 @@
 <div>
     <button  onclick="save()">회원가입</button><br>
     <button  onclick="login()">로그인</button><br>
-    <button  onclick="">글목록</button><br>
+    <button  onclick="findAll()">글목록</button><br>
 </div>
 </body>
 <script>
@@ -27,7 +27,7 @@
         location.href="/member/login"
     }
     function findAll(){
-        location.href="/member/detail.jsp"
+        location.href="/board/findAll"
     }
 
 </script>
