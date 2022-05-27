@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="container">
-0    <h3>회원가입</h3>
+    <h3>회원가입</h3>
     <form method="post" action="/member/save" enctype="multipart/form-data">
     <input type="text" name="memberId" id="memberId" placeholder="아이디" onblur="duplicateCheck()">
         <h6 id="duplicate"></h6>
@@ -26,7 +26,7 @@
         <h6></h6>
     <input type="tel" name="memberMobile" placeholder="전화번호"><br>
         <h6></h6>
-    <input type="file" name="memberFile" placeholder="첨부파일"><br>
+    <input type="file" name="memberProfile" placeholder="첨부파일"><br>
         <h6></h6>
         <input type="submit" value="회원가입">
     </form>

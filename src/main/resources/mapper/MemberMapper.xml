@@ -23,6 +23,9 @@
     <select id="findById" parameterType="Long" resultType="MDTO">
         select * from member1_table where id=#{id}
     </select>
+    <update id="update" parameterType="MDTO">
+        update member1_table set memberName=#{memberName},memberEmail=#{memberEmail},memberMobile=#{memberMobile} where id=#{id}
+    </update>
 </mapper>
 
 

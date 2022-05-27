@@ -39,4 +39,10 @@ public class MemberPostRepository {
         System.out.println(memberDTO);
       return  memberDTO;
     }
+
+    public int update(MemberDTO memberDTO) {
+       int result = sql.update("member.update",memberDTO);
+        System.out.println(memberDTO);
+       return result;
+    }
 }
