@@ -10,16 +10,16 @@
 <html>
 <head>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="/resources/js/jquery.js"></script>
     <title>Title</title>
 </head>
 <body>
+<jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <div class="container">
 회원전용<br>
 ID:${sessionScope.loginMemberId}<br>
 ${sessionScope.loginName}님 환영합니다<br>
-<a href="">게시글작성</a><br>
-<a href="">게시글조회</a><br>
-<a href="">상세조회</a><br>
+
 </div>
 </body>
 </html>

@@ -33,4 +33,13 @@ public class MemberPostService {
         List<MemberDTO> memberDTOList=memberPostRepository.findALl();
         return memberDTOList;
     }
+
+    public boolean delete(Long id) {
+       int dropId = memberPostRepository.delete(id);
+       if(dropId<=0){
+           return true;
+       }else {
+           return false;
+       }
+    }
 }

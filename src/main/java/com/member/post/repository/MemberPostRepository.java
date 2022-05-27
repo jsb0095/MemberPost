@@ -29,4 +29,8 @@ public class MemberPostRepository {
     public List<MemberDTO> findALl() {
        return sql.selectList("member.findAll");
     }
+
+    public int delete(Long id) {
+      return   sql.delete("member.delete",id);
+    }
 }

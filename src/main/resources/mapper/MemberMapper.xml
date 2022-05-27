@@ -17,6 +17,9 @@
     <select id="findAll" resultType="MDTO">
         select * from member1_table;
     </select>
+    <delete id="delete" parameterType="Long">
+        delete from member1_table where id=#{id}
+    </delete>
 </mapper>
 
 

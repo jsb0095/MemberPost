@@ -40,20 +40,17 @@ public class MemberPostController {
             if(memberDTO!=null){
             httpSession.setAttribute("loginMemberId",memberDTO.getId());
             httpSession.setAttribute("loginName",memberDTO.getMemberName());
-
             model.addAttribute("memberPostDTO", memberDTO);
+
             if(memberDTO.getMemberId().equals("admin")){
-                    httpSession.setAttribute("adminId",memberDTO.getId());
-                    httpSession.setAttribute("adminName",memberDTO.getMemberName());
-                    return "member/admin";
+                return "member/admin";
                 }
-            return "member/boardList";
+            return "member/member";
         }else{
             return "member/login";
         }
 
     }
-
 
     @GetMapping("/findAll")
     public String findAll(Model model){
@@ -61,6 +58,22 @@ public class MemberPostController {
         model.addAttribute("findUser",memberDTOList);
         return "member/findAll";
     }
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id")Long id){
+       boolean dropId =memberPostService.delete(id);
+       if(dropId){
+           return "member/admin";
+       }else {
+           return "redirect:/member/findAll";
+       }
+
+    }
+    @GetMapping("logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "index";
+    }
+
 
 
 

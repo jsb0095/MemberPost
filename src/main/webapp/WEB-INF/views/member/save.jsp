@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="container">
-    <h3>회원가입</h3>
+0    <h3>회원가입</h3>
     <form method="post" action="/member/save" enctype="multipart/form-data">
     <input type="text" name="memberId" id="memberId" placeholder="아이디" onblur="duplicateCheck()">
         <h6 id="duplicate"></h6>
