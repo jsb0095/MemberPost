@@ -27,7 +27,7 @@
         location.href="/member/login"
     }
     function findAll(){
-        location.href="/board/findAll"
+        location.href="/board/paging"
     }
 
 </script>
