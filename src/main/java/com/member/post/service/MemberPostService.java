@@ -15,6 +15,7 @@ public class MemberPostService {
     @Autowired
     private MemberPostRepository memberPostRepository;
     public void save(MemberDTO memberDTO)throws IOException  {
+        if(memberDTO.getMemberProfile()==null) {
             MultipartFile boardFile = memberDTO.getMemberProfile();
             String boardFileName = boardFile.getOriginalFilename();
             boardFileName = System.currentTimeMillis() + "-" + boardFileName;
@@ -22,10 +23,15 @@ public class MemberPostService {
             String savePath = "C:\\Spring_img\\" + boardFileName;
             if (!boardFile.isEmpty()) {
                 boardFile.transferTo(new File(savePath));
-        memberPostRepository.save(memberDTO);
+                memberPostRepository.save(memberDTO);
+                System.out.println("memberDTO = " + memberDTO);
+            }
 
+        }else {
+            memberPostRepository.save(memberDTO);
+        }
     }
-    }
+
 
     public String duplicateCheck(String memberId) {
        MemberDTO IdCheck= memberPostRepository.duplicateCheck(memberId);

@@ -12,6 +12,7 @@ public class MemberPostRepository {
     @Autowired private SqlSessionTemplate sql;
 
     public void save(MemberDTO memberDTO) {
+        System.out.println("memberDTO = " + memberDTO);
         sql.insert("member.save", memberDTO);
 
     }

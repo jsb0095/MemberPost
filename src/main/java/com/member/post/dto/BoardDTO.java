@@ -7,14 +7,13 @@ import java.sql.Timestamp;
 
 @Data
 public class BoardDTO {
-    Long memberId;
-    Long b_id;
-    String boardTitle;
-    String boardWriter;
-    String boardContents;
-    int boardHits;
-    Timestamp boardCreatedDate;
-    MultipartFile boardProfile;
-    String boardProfileName;
+    private Long id;
+    private String boardTitle;
+    private String boardWriter;
+    private String boardContents;
+    private int boardHits;
+    private Timestamp boardCreatedDate;
+    private MultipartFile boardProfile;
+    private String boardProfileName;
 
 }

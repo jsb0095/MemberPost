@@ -5,12 +5,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Data
 public class MemberDTO {
-   private Long id;
-    private String memberId;
-    String memberPassword;
-    String memberName;
-    String memberEmail;
-    String memberMobile;
-    MultipartFile  memberProfile;
-    String memberProfileName;
+ private Long id;
+ private String memberId;
+ private String memberPassword;
+ private String memberName;
+ private String memberEmail;
+ private String memberMobile;
+ private MultipartFile  memberProfile;
+ private String memberProfileName;
 }

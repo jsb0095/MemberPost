@@ -25,6 +25,7 @@ public class MemberPostController {
 
     @PostMapping("/save")
     public String save(@ModelAttribute MemberDTO memberDTO) throws IOException {
+        System.out.println("memberDTO = " + memberDTO);
         memberPostService.save(memberDTO);
         return "/member/login";
     }
@@ -44,8 +45,8 @@ public class MemberPostController {
     public String loginForm(@ModelAttribute MemberDTO memberPostDTO, HttpSession httpSession, Model model) {
         MemberDTO memberDTO = memberPostService.loginForm(memberPostDTO);
         if (memberDTO != null) {
-            httpSession.setAttribute("loginMemberId", memberDTO.getId());
-            httpSession.setAttribute("loginName", memberDTO.getMemberName());
+            httpSession.setAttribute("getId", memberDTO.getId());
+            httpSession.setAttribute("getMemberId", memberDTO.getMemberId());
             httpSession.setAttribute("loginProfile",memberDTO.getMemberProfileName());
             model.addAttribute("memberPostDTO", memberDTO);
 
@@ -80,6 +81,7 @@ public class MemberPostController {
     @GetMapping("logout")
     public String logout(HttpSession session) {
         session.invalidate();
+
         return "index";
     }
 
