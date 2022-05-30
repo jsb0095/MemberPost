@@ -25,7 +25,7 @@
         <h6></h6>
     <input type="email" name="memberEmail" placeholder="이메일"><br>
         <h6></h6>
-    <input type="tel" id="phoneCheck" name="memberMobile" placeholder="전화번호" onblur="phoneCheck()"><br>
+    <input type="tel" id="phoneCheck" name="memberMobile" placeholder="전화번호" onblur="MobileCheck()"><br>
         <h6 id="checkResult"></h6>
     <input type="file" name="memberProfile" placeholder="첨부파일"><br>
         <h6></h6>
@@ -38,30 +38,30 @@
     function pwCheck() {
        let passwordCheck= document.getElementById("password").value;
        let passCheck= document.getElementById("passCheck")
-
         let exp=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-_!#$])[A-Za-z\d-_!#$]{5,20}$/;
-        if (exp.match (passwordCheck)){
+
+        if (passwordCheck .match(exp)){
             passCheck.innerHTML="사용가능한 비밀번호입니다"
             passCheck.style.color="green"
         }else{
             passCheck.innerHTML="영문(대,소문자) 숫자 특수기호(-_!#$)사용하여 입력해주세요"
             passCheck.style.color="red"
         }
-
-
     }
-    function phoneCheck(){
-        const phoneCheck=document.getElementById("phoneCheck").value;
-        const checkResult=document.getElementById("checkResult");
-        const exp=/^\d{3}-\d{4}-\d{4}$/;
-        if(phoneCheck.match(exp))
-        {
-            checkResult.style.color="green"
-            checkResult.innerHTML="멋져요"
-        }else
-        {
-            checkResult.style.color="red"
-            checkResult.innerHTML="ex)010-1234-1234형태로 입력해주세요"
+
+    function MobileCheck() {
+        const phoneCheck = document.getElementById("phoneCheck").value;
+        const checkResult = document.getElementById("checkResult");
+        const exp = /^\d{3}-\d{4}-\d{4}$/;
+
+        if (phoneCheck.match(exp)) {
+            checkResult.style.color = "green"
+            checkResult.innerHTML = "멋져요"
+        } else {
+            checkResult.style.color = "red"
+            checkResult.innerHTML = "ex)010-1234-1234형태로 입력해주세요"
+        }
+    }
 
     function duplicateCheck(){
     const memberId= document.getElementById("memberId").value;
@@ -81,12 +81,8 @@
                 duplicate.style.color="red"
                 duplicate.innerHTML="이미사용중이거나 탈퇴한 아이디입니다"
             }
-
-
-
         },
         error: function(){console.log("중복아이디")}
-
     })
     }
 </script>

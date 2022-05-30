@@ -15,13 +15,12 @@
 </head>
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
+
 <div class="container">
-회원전용<br>
-ID:${sessionScope.getId}<br>
-${sessionScope.getMemberId}님 환영합니다<br>
+
 
     <c:if test="${sessionScope.loginProfile!=null}">
-    <img src="${pageContext.request.contextPath}/upload/${sessionScope.loginProfile}" alt="" height="100" width="100"><br>
+    <img src="${pageContext.request.contextPath}/upload/${sessionScope.loginProfile}" alt="" height="100" width="100" STYLE="margin-right: 1000px"><br>
     </c:if>
 
     <button onclick="boardSave()">글쓰기</button>
