@@ -3,6 +3,7 @@ package com.member.post.controller;
 import com.member.post.dto.BoardDTO;
 import com.member.post.dto.PageDTO;
 import com.member.post.service.BoardService;
+import com.member.post.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import java.util.List;
 
 public class BoardController {
     @Autowired private BoardService boardService;
+    @Autowired private CommentService commentService;
     @GetMapping("/save")
     public String saveForm(){
 
@@ -53,7 +55,7 @@ public class BoardController {
         BoardDTO boardDTO=boardService.detail(id);
         model.addAttribute("page",page);
         model.addAttribute("UserDb",boardDTO);
-
+        model.addAttribute("commentList", commentService.findAll(id));
         return "board/detail";
     }
     @GetMapping("/updateForm")

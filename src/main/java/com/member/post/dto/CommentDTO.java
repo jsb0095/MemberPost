@@ -2,11 +2,13 @@ package com.member.post.dto;
 
 import lombok.Data;
 
+import java.sql.Timestamp;
+
 @Data
 public class CommentDTO {
-    int boardId;
+    Long boardId;
     Long id;
     String commentWriter;
-    String commentCratedDate;
+    Timestamp commentCreatedDate;
     String commentContents;
 }

@@ -21,6 +21,7 @@
     <div class="rightContainer" >
     <input type="button" value="회원가입" onclick="MSave(${sessionScope.getId})"></input>&nbsp
     <input type="button" value="로그인" onclick="MLogin(${sessionScope.getId})" ></input>&nbsp
+        <input type="button" value="마이페이지" onclick="findById(${sessionScope.getId})"></input>&nbsp
     <input type="button" value="글쓰기" onclick="BSave(${sessionScope.getId})"></input>&nbsp
     <input type="button" value="글목록" onclick="BPaging(${sessionScope.getId})"></input>&nbsp
     <input type="button" value="로그아웃" onclick="MLogout(${sessionScope.getId})"></input>
@@ -70,6 +71,8 @@
         }
 
     }
-
+    function findById(id){
+        location.href="/member/detail?id="+id;
+    }
 </script>
 </html>

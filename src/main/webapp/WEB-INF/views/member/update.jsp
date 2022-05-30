@@ -39,6 +39,8 @@
         const DBPassword ='${updateId.memberPassword}';
         if(userPassword==DBPassword){
             update1.submit();
+        }else {
+            alert("비밀번호가 일치하지않습니다!!")
         }
     }
 </script>
