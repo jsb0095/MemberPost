@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <!-- CSS only -->
@@ -21,21 +21,27 @@
 <body>
 
 <header class="form-control" ><!--header 구분용 역할은 x 시맨틱 태그-->
-   회원번호:${[sessionScope.getId]}&nbsp ID:${[sessionScope.getMemberId]}&nbsp
+    <c:if test="${sessionScope.getMemberId ne null}">
+        <div class="text-end">
+           <h5><b> ID:${sessionScope.getMemberId}</b></h5>
+        </div>
+    </c:if>
     <div class="position-absolute top-1 end-0" style="margin-top: 6px">
-    <div class="btn-group-vertical gap-1">
-    <input type="button" value="회원가입" class="col-12"  onclick="MSave(${sessionScope.getId})">
-    <input type="button" value="로그인" class="col-12" onclick="MLogin(${sessionScope.getId})" >
-        <input type="button" value="마이페이지" class="col-12" onclick="findById(${sessionScope.getId})">
-    <input type="button" value="글쓰기" class="col-12" onclick="BSave(${sessionScope.getId})">
-    <input type="button" value="글목록" class="col-12" onclick="BPaging(${sessionScope.getId})">
-    <input type="button" value="로그아웃" class="col-12" onclick="MLogout(${sessionScope.getId})">
+    <div class="btn-group-vertical gap-2">
+    <input type="button" class="btn btn-dark" value="회원가입" class="col-12"  onclick="MSave(${sessionScope.getId})">
+    <input type="button" class="btn btn-dark" value="로그인" class="col-12" onclick="MLogin(${sessionScope.getId})" >
+        <input type="button" class="btn btn-dark" value="마이페이지" class="col-12" onclick="findById(${sessionScope.getId})">
+    <input type="button" class="btn btn-dark" value="글쓰기" class="col-12" onclick="BSave(${sessionScope.getId})">
+    <input type="button" class="btn btn-dark" value="글목록" class="col-12" onclick="BPaging(${sessionScope.getId})">
+    <input type="button" class="btn btn-dark" value="로그아웃" class="col-12" onclick="MLogout(${sessionScope.getId})">
+
     </div>
     </div>
 </header>
 
 </body>
 <script>
+
     function MSave(Check1){
         if (Check1==null){
             location.href="/member/save";
@@ -77,7 +83,13 @@
 
     }
     function findById(id){
-        location.href="/member/detail?id="+id;
+        if(id==null){
+            alert("로그인후 이용해주세요")
+            location.href="/member/login"
+        }else{
+            location.href="/member/detail?id="+id;
+        }
+
     }
 </script>
 </html>

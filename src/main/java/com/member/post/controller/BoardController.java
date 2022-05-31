@@ -32,7 +32,7 @@ public class BoardController {
       boardService.save(boardDTO);
         List<BoardDTO> boardDTOList= boardService.findAll();
         model.addAttribute("findList",boardDTOList);
-    return "redirect:/board/findAll";
+    return "redirect:/board/paging";
     }
 
     @GetMapping("/findAll")
@@ -52,9 +52,11 @@ public class BoardController {
     @GetMapping("/detail")
     public String detail(@RequestParam("id")Long id, Model model,
                          @RequestParam(value="page",required=false,defaultValue = "1")int page){
+
         BoardDTO boardDTO=boardService.detail(id);
         model.addAttribute("page",page);
         model.addAttribute("UserDb",boardDTO);
+
         model.addAttribute("commentList", commentService.findAll(id));
         return "board/detail";
     }

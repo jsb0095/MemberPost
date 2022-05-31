@@ -19,18 +19,16 @@ public class BoardService {
     @Autowired private BoardRepository boardRepository;
     public void save(BoardDTO boardDTO) throws IOException {
         System.out.println("boardDTO = " + boardDTO);
-        if(boardDTO.getBoardProfile()==null){
         MultipartFile boardFile = boardDTO.getBoardProfile();
         String boardFileName = boardFile.getOriginalFilename();
         boardFileName = System.currentTimeMillis() + "-" + boardFileName;
-        boardDTO.setBoardProfileName(boardFileName);
         String savePath = "C:\\Spring_img\\" + boardFileName;
 
         if (!boardFile.isEmpty()) {
+            boardDTO.setBoardProfileName(boardFileName);
             boardFile.transferTo(new File(savePath));
-            boardRepository.save(boardDTO);
         }
-        }else{ boardRepository.save(boardDTO);}
+            boardRepository.save(boardDTO);
 
     }
     public List<BoardDTO> findAll() {
@@ -63,7 +61,10 @@ public class BoardService {
         return paging;
     }
 
-    public BoardDTO detail(Long id) {return boardRepository.detail(id);
+    public BoardDTO detail(Long id) {
+
+
+        return boardRepository.detail(id);
     }
 
     public BoardDTO updateForm(Long id) {

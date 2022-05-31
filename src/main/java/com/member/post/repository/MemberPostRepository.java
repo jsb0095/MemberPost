@@ -21,7 +21,7 @@ public class MemberPostRepository {
        return sql.selectOne("member.duplicateCheck",memberId);
     }
 
-    public MemberDTO loginForm(MemberDTO memberDTO) {
+    public MemberDTO login(MemberDTO memberDTO) {
 
 
       return sql.selectOne("member.loginForm", memberDTO);

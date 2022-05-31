@@ -27,7 +27,7 @@ public class MemberPostController {
     public String save(@ModelAttribute MemberDTO memberDTO) throws IOException {
         System.out.println("memberDTO = " + memberDTO);
         memberPostService.save(memberDTO);
-        return "/member/login";
+        return "loginForm";
     }
 
     @PostMapping("/duplicate-check")
@@ -37,13 +37,13 @@ public class MemberPostController {
     }
 
     @GetMapping("/login")
-    public String login() {
-        return "/member/login";
+    public String loginForm() {
+        return "loginForm";
     }
 
     @PostMapping("/login")
-    public String loginForm(@ModelAttribute MemberDTO memberPostDTO, HttpSession httpSession, Model model) {
-        MemberDTO memberDTO = memberPostService.loginForm(memberPostDTO);
+    public String login(@ModelAttribute MemberDTO memberPostDTO, HttpSession httpSession, Model model) {
+        MemberDTO memberDTO = memberPostService.login(memberPostDTO);
         if (memberDTO != null) {
             httpSession.setAttribute("getId", memberDTO.getId());
             httpSession.setAttribute("getMemberId", memberDTO.getMemberId());
@@ -55,7 +55,7 @@ public class MemberPostController {
             }
             return "member/member";
         } else {
-            return "member/login";
+            return "member/loginForm";
         }
 
     }

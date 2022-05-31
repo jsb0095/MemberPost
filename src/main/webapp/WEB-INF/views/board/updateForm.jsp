@@ -13,16 +13,14 @@
 <body>
 <jsp:include page="../layout/header.jsp" flush="false"></jsp:include>
 <form action="/board/update" method="post" enctype="multipart/form-data">
-    <input type="text" name="id" value="${findById.id}"hidden>
-    <input type="text" name="boardWriter" value="${sessionScope.getMemberId}" readonly><br>
-    <br>
-    <input type="text" name="boardTitle" placeholder="제목"><br>
-    <br>
-    <textarea name="boardContents" type="text" placeholder="내용"></textarea>
-    <br>
-    <input type="file" name="boardProfile" placeholder="첨부파일"><br>
-    <br>
-    <input type="submit" value="글작성">
+    <div class="position-absolute top-50 start-50 translate-middle d-grid mx-auto">
+    <input type="text" style="background-color:#e9ecef" class="form-control mb-3" name="id" value="${findById.id}"hidden>
+    <input type="text" style="background-color:#e9ecef" class="form-control mb-3" name="boardWriter" value="${sessionScope.getMemberId}" readonly>
+    <input type="text" style="background-color:#e9ecef" class="form-control mb-3" name="boardTitle" placeholder="제목">
+    <textarea  name="boardContents" style="background-color:#e9ecef" class="form-control mb-3" type="text" placeholder="내용"></textarea>
+    <input type="file" class="form-control mb-3" name="boardProfile" placeholder="첨부파일">
+    <input type="submit" class="btn btn-dark" value="글작성">
+    </div>
 </form>
 
 </div>

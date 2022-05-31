@@ -8,31 +8,33 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="/resources/js/jquery.js"></script>
     <title>Title</title>
+
 </head>
 <body>
-<div class="container">
-    <h3>회원가입</h3>
+
+    <div class="position-absolute top-50 start-50 translate-middle d-grid mx-auto">
+    <h3 class="text-center">회원가입</h3>
     <form method="post" action="/member/save" enctype="multipart/form-data">
-    <input type="text" name="memberId" id="memberId" placeholder="아이디" onblur="duplicateCheck()">
-        <h6 id="duplicate"></h6>
-    <input type="password" name="memberPassword" id="password" placeholder="비밀번호" onblur="pwCheck()"><br>
-        <h6 id="passCheck"></h6>
+    <input class="form-control m-3" type="text" name="memberId" style="background-color: #e9ecef" id="memberId" placeholder="아이디" onblur="duplicateCheck()">
+        <p id="duplicate"></p>
+    <input type="password" class="form-control m-3" name="memberPassword" style="background-color: #e9ecef" id="password" placeholder="비밀번호" onblur="pwCheck()">
+        <p id="passCheck"></p>
 
-    <input type="text" name="memberName" placeholder="이름"><br>
-        <h6></h6>
-    <input type="email" name="memberEmail" placeholder="이메일"><br>
-        <h6></h6>
-    <input type="tel" id="phoneCheck" name="memberMobile" placeholder="전화번호" onblur="MobileCheck()"><br>
-        <h6 id="checkResult"></h6>
-    <input type="file" name="memberProfile" placeholder="첨부파일"><br>
-        <h6></h6>
-        <input type="submit" value="회원가입">
+    <input type="text" class="form-control m-3" name="memberName" style="background-color: #e9ecef" placeholder="이름">
+
+    <input type="email" class="form-control m-3" name="memberEmail" style="background-color: #e9ecef" placeholder="이메일">
+
+    <input type="tel" class="form-control m-3" id="phoneCheck" style="background-color: #e9ecef" name="memberMobile" placeholder="전화번호" onblur="MobileCheck()">
+        <p id="checkResult"></p>
+    <input type="file" class="form-control m-3" name="memberProfile" placeholder="첨부파일"><br>
+        <input type="submit" class="btn btn-dark d-grid mx-auto" value="회원가입">
     </form>
+    </div>
 
-</div>
 </body>
 <script>
     function pwCheck() {
@@ -44,7 +46,7 @@
             passCheck.innerHTML="사용가능한 비밀번호입니다"
             passCheck.style.color="green"
         }else{
-            passCheck.innerHTML="영문(대,소문자) 숫자 특수기호(-_!#$)사용하여 입력해주세요"
+            passCheck.innerHTML="영문(대,소문자) 숫자 특수기호(-_!#$)<br>사용하여 입력해주세요";
             passCheck.style.color="red"
         }
     }

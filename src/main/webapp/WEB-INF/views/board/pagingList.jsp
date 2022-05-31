@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Title</title>
@@ -24,7 +25,7 @@
             <option value="boardWriter">작성자</option>
         </select>
         <input type="text" name="q" placeholder="검색어입력">
-        <input type="submit" value="검색">
+        <input type="submit" class="btn btn-dark" value="검색">
     </form>
 </div>
 <div class="container">
@@ -40,7 +41,7 @@
             <tr>
                 <td>${board.id}</td>
                 <td>${board.boardWriter}</td>
-                <td><a href="/board/detail?page=${paging.page}&id=${board.id}">${board.boardTitle}</a></td>
+                <td><a  class="link-dark" href="/board/detail?page=${paging.page}&id=${board.id}">${board.boardTitle}</a></td>
                 <!--BoardController 모델값으로 paging과 board 가져옴-->
                 <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss"
                                     value="${board.boardCreatedDate}"></fmt:formatDate></td>
@@ -58,25 +59,25 @@
         <c:choose>
             <c:when test="${paging.page<=1}">
                 <li class="page-item disabled">
-                    <a class="page-link">[이전]</a>
+                    <a class="page-link" style="color: gray">[이전]</a>
                 </li>
             </c:when>
             <c:otherwise>
-                <li class="page-item">
-                    <a class="page-link" href="/board/paging?page=${paging.page-1}">[이전]</a>
+                <li class="page-item link-dark">
+                    <a class="page-link link-dark" href="/board/paging?page=${paging.page-1}">[이전]</a>
                 </li>
             </c:otherwise>
         </c:choose>
         <c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="i" step="1">
             <c:choose>
                 <c:when test="${i eq paging.page}">
-                    <li class="page-item active">
-                        <a class="page-link">${i}</a>
+                    <li class="page-item active link-dark">
+                        <a class="page-link link-dark" style="border-color: black; background-color:gray" >${i}</a>
                     </li>
                 </c:when>
                 <c:otherwise>
-                    <li class="page-item">
-                        <a class="page-link" href="/board/paging?page=${i}">${i}</a>
+                    <li class="page-item link-dark">
+                        <a class="page-link link-dark" href="/board/paging?page=${i}">${i}</a>
                     </li>
                 </c:otherwise>
             </c:choose>
@@ -84,12 +85,12 @@
         <c:choose>
             <c:when test="${paging.page>=paging.maxPage}">
                 <li class="page-item disabled">
-                    <a class="page-link">[다음]</a>
+                    <a class="page-link" style="color: gray">[다음]</a>
                 </li>
             </c:when>
             <c:otherwise>
-                <li class="page-item">
-                    <a class="page-link" href="/board/paging?page=${paging.page+1}">[다음]</a>
+                <li class="page-item link-dark">
+                    <a class="page-link link-dark" href="/board/paging?page=${paging.page+1}">[다음]</a>
                 </li>
             </c:otherwise>
         </c:choose>

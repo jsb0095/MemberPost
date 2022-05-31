@@ -42,8 +42,8 @@ public class MemberPostService {
         }
     }
 
-    public MemberDTO loginForm(MemberDTO memberDTO) {
-       return memberPostRepository.loginForm(memberDTO);
+    public MemberDTO login(MemberDTO memberDTO) {
+       return memberPostRepository.login(memberDTO);
     }
 
     public List<MemberDTO> findAll() {

@@ -29,7 +29,7 @@
             <th>조회수</th>
 
             <c:if test="${UserDb.boardProfileName ne null}">
-            <th>프로필</th>
+            <th>사진</th>
             </c:if>
 
             <c:if test="${sessionScope.getMemberId eq UserDb.boardWriter || sessionScope.getMemberId eq 'admin'}">
@@ -45,14 +45,16 @@
                 <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss"
                                     value="${UserDb.boardCreatedDate}"></fmt:formatDate></td>
                 <td>${UserDb.boardHits}</td>
+
                 <c:if test="${UserDb.boardProfileName ne null}">
-                <img src="${pageContext.request.contextPath}/upload/${UserDb.boardProfileName}" alt="" height="100"
-                     width="100">
+                <td> <img src="${pageContext.request.contextPath}/upload/${UserDb.boardProfileName}" alt="" height="50">
+                    </td>
                 </c:if>
 
+
                 <c:if test="${sessionScope.getMemberId eq UserDb.boardWriter || sessionScope.getMemberId eq 'admin'}">
-                <td><input type="button" value="수정" onclick="update()"></td>
-                <td><input type="button" value="삭제" onclick="drop()"></td>
+                <td><input type="button" class="btn btn-dark"  value="수정"  onclick="update()"></td>
+                <td><input type="button" class="btn btn-dark" value="삭제" onclick="drop()"></td>
                 </c:if>
 
             </tr>
@@ -62,7 +64,7 @@
     <div id="comment-write" class="input-group mb-3">
         <input type="text" id="commentWriter" class="form-control" value="${sessionScope.getMemberId}" hidden>
         <input type="text" id="commentContents"  class="form-control" placeholder="내용"><br>
-        <button id="comment-write-btn"  class="btn btn-primary" onclick="commentSave()">댓글작성</button>
+        <button id="comment-write-btn"  class="btn btn-dark" onclick="commentSave()">댓글작성</button>
     </div>
 </div>
 
@@ -96,6 +98,9 @@
         location.href="/board/delete?id=${UserDb.id}";
     }
     function commentSave() {
+        if(${sessionScope.getMemberId==null}){
+            alert("로그인후 이용해주세요")
+        }
         const commentWriter = document.getElementById("commentWriter").value;
         const commentContents = document.getElementById("commentContents").value;
         const boardId='${UserDb.id}';

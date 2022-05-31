@@ -17,17 +17,15 @@
 <body>
 
 <form method="post" action="/member/login">
-<div class="container">
     <div class="position-absolute top-50 start-50 translate-middle">
         <input type="text" value="회원가입" readonly class="m-2 text-center form-control" >
 
-        <input type="text" name="memberId" id="memberId" placeholder="아이디" class="m-2 form-control" style="background-color:#e9ecef" >
+        <input type="text" name="memberId" id="memberId"  placeholder="아이디" class="m-2 form-control" style="background-color:#e9ecef"  >
 
         <input type="password" name="memberPassword" placeholder="비밀번호" class="m-2 form-control" style="background-color:#e9ecef" >
 
         <input type="submit" class="btn btn-dark d-grid mx-auto" value="로그인">
     </div>
-</div>
 </form>
 
 </body>
