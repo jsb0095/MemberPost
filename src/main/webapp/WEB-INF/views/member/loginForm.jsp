@@ -18,7 +18,7 @@
 
 <form method="post" action="/member/loginForm">
     <div class="position-absolute top-50 start-50 translate-middle">
-        <input type="text" value="회원가입" readonly class="m-2 text-center form-control" >
+        <input type="text" value="회원가입" onclick="memberSave()" class="m-2 text-center form-control "  style="background-color:#e9ecef" >
 
         <input type="text" name="memberId" id="memberId"  placeholder="아이디" class="m-2 form-control" style="background-color:#e9ecef"  >
 
@@ -29,5 +29,10 @@
 </form>
 
 </body>
+<script>
+    function memberSave(){
+        location.href="/member/save"
 
+    }
+</script>
 </html>

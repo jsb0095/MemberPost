@@ -99,6 +99,7 @@
     }
     function commentSave() {
         if(${sessionScope.getMemberId==null}){
+            location.href="/member/loginForm"
             alert("로그인후 이용해주세요")
         }
         const commentWriter = document.getElementById("commentWriter").value;
