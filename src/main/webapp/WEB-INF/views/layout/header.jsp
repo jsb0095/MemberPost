@@ -53,14 +53,14 @@
         if(Check2!=null){
             alert("이미 로그인중입니다")
         }else {
-            location.href="/member/login";
+            location.href="/member/loginForm";
         }
     }
 
     function BSave(Check3){
         if(Check3==null){
             alert("로그인후 이용해주세요")
-            location.href="/member/login"
+            location.href="/member/loginForm"
         }else {
             location.href="/board/save"
         }
@@ -68,7 +68,7 @@
     function BPaging(Check4) {
         if (Check4 == null) {
             alert("로그인후 이용해주세요")
-            location.href = "/member/login"
+            location.href = "/member/loginForm"
         } else {
             location.href = "/board/paging"
         }
@@ -85,7 +85,7 @@
     function findById(id){
         if(id==null){
             alert("로그인후 이용해주세요")
-            location.href="/member/login"
+            location.href="/member/loginForm"
         }else{
             location.href="/member/detail?id="+id;
         }

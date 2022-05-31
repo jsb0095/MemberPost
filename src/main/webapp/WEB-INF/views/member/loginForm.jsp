@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<form method="post" action="/member/login">
+<form method="post" action="/member/loginForm">
     <div class="position-absolute top-50 start-50 translate-middle">
         <input type="text" value="회원가입" readonly class="m-2 text-center form-control" >
 

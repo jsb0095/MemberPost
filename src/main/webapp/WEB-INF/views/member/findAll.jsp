@@ -49,11 +49,6 @@
     function drop(id){
         location.href="/member/delete?id="+id;
     }
-    // function findById(id){
-    //     if(id==3){
-    //         alert("운영자는 접근할수 없습니다!!")
-    //     }else{location.href="/member/detail?id="+id;}
-    //
-    // }
+
 </script>
 </html>

@@ -36,7 +36,7 @@
         location.href="/member/save"
     }
     function login(){
-        location.href="/member/login"
+        location.href="/member/loginForm"
     }
     function findAll(){
         location.href="/board/paging"

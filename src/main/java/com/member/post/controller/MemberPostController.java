@@ -36,12 +36,12 @@ public class MemberPostController {
         return IdCheck;
     }
 
-    @GetMapping("/login")
+    @GetMapping("/loginForm")
     public String loginForm() {
-        return "loginForm";
+        return "member/loginForm";
     }
 
-    @PostMapping("/login")
+    @PostMapping("/loginForm")
     public String login(@ModelAttribute MemberDTO memberPostDTO, HttpSession httpSession, Model model) {
         MemberDTO memberDTO = memberPostService.login(memberPostDTO);
         if (memberDTO != null) {
